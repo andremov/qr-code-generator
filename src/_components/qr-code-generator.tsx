@@ -6,7 +6,7 @@ import { ChevronDownIcon, Download } from "lucide-react";
 import locale from "~/utils/locale.json";
 import type LocaleStrings from "~/utils/types";
 
-export default function CodeGenerator({ lang = "en" }: { lang: "en" | "es" }) {
+export default function CodeGenerator({ lang = "en" }: { lang?: "en" | "es" }) {
   const [qrCodeData, setQrCodeData] = useState("");
   const [bgColor, setBgColor] = useState("#FFFFFF");
   const [fgColor, setFgColor] = useState("#000000");
@@ -71,9 +71,9 @@ export default function CodeGenerator({ lang = "en" }: { lang: "en" | "es" }) {
           />
         </div>
 
-        <div className="flex gap-1 space-x-4">
-          <div className="flex flex-col gap-1">
-            <label className="font-semibold" htmlFor="bg-color">
+        <div className="flex w-full gap-1 space-x-4">
+          <div className="flex w-6/12 flex-col items-center gap-1">
+            <label className="text-nowrap font-semibold" htmlFor="bg-color">
               {localeStrings.labels.background}
             </label>
             <input
@@ -84,8 +84,9 @@ export default function CodeGenerator({ lang = "en" }: { lang: "en" | "es" }) {
               className="h-10 w-full rounded-md border border-gray-200 bg-white px-2 py-1"
             />
           </div>
-          <div className="flex flex-col gap-1">
-            <label className="font-semibold" htmlFor="fg-color">
+
+          <div className="flex w-6/12 flex-col items-center gap-1">
+            <label className="text-nowrap font-semibold" htmlFor="fg-color">
               {localeStrings.labels.foreground}
             </label>
             <input

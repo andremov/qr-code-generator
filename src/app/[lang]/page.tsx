@@ -1,12 +1,17 @@
+"use client";
+
+import LocaleSwitcher from "~/_components/locale-switcher";
 import CodeGenerator from "~/_components/qr-code-generator";
-import { useRouter } from "next/router";
 
-export default function HomePage() {
-  const router = useRouter();
+type PageProps = {
+  params: { lang: "en" | "es" };
+};
 
+export default function HomePage({ params }: PageProps) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
-      <CodeGenerator lang={router.query.lang} />
+      <LocaleSwitcher lang={params.lang} />
+      <CodeGenerator lang={params.lang} />
     </main>
   );
 }
