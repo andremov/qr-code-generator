@@ -1,3 +1,4 @@
+import LocaleSwitcher from "~/_components/locale-switcher";
 import CodeGenerator from "~/_components/qr-code-generator";
 
 export default function HomePage() {
