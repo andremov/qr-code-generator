@@ -1,0 +1,28 @@
+{
+  "en": {
+    "error": "Please enter a valid text or URL",
+    "title": "QR Code Generator",
+    "labels": {
+      "data": "Text or URL",
+      "foreground": "Foreground Color",
+      "background": "Background Color"
+    },
+    "buttons": {
+      "generate": "Generate QR Code",
+      "download": "Download"
+    }
+  },
+  "es": {
+    "error": "Por favor ingrese un texto o URL valida",
+    "title": "Generador de Codigos QR",
+    "labels": {
+      "data": "Texto o URL",
+      "foreground": "Color de Simbolo",
+      "background": "Color de Fondo"
+    },
+    "buttons": {
+      "generate": "Generar Codigo QR",
+      "download": "Descargar"
+    }
+  }
+}

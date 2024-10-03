@@ -3,8 +3,10 @@ import { useState, useRef, useCallback } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import html2canvas from "html2canvas";
 import { ChevronDownIcon, Download } from "lucide-react";
+import locale from "~/utils/locale.json";
+import type LocaleStrings from "~/utils/types";
 
-export default function CodeGenerator() {
+export default function CodeGenerator({ lang = "en" }: { lang: "en" | "es" }) {
   const [qrCodeData, setQrCodeData] = useState("");
   const [bgColor, setBgColor] = useState("#FFFFFF");
   const [fgColor, setFgColor] = useState("#000000");
@@ -12,10 +14,11 @@ export default function CodeGenerator() {
   const [error, setError] = useState("");
   const [downloadFormat, setDownloadFormat] = useState("png");
   const qrRef = useRef(null);
+  const localeStrings: LocaleStrings = locale[lang];
 
   const handleGenerate = () => {
     if (!qrCodeData.trim()) {
-      setError("Please enter a valid text or URL");
+      setError(localeStrings.error);
       return;
     }
     setError("");
@@ -53,11 +56,11 @@ export default function CodeGenerator() {
 
   return (
     <div className="mx-auto max-w-md rounded-lg bg-white p-6 text-sm text-black shadow-md">
-      <h1 className="mb-4 text-2xl font-bold">QR Code Generator</h1>
+      <h1 className="mb-4 text-2xl font-bold">{localeStrings.title}</h1>
       <div className="space-y-4">
         <div className="flex flex-col gap-1">
           <label className="font-semibold" htmlFor="qr-input">
-            Text or URL
+            {localeStrings.labels.data}
           </label>
           <input
             className="rounded-md border border-gray-200 p-2 outline-none transition focus:border-blue-400"
@@ -71,7 +74,7 @@ export default function CodeGenerator() {
         <div className="flex gap-1 space-x-4">
           <div className="flex flex-col gap-1">
             <label className="font-semibold" htmlFor="bg-color">
-              Background Color
+              {localeStrings.labels.background}
             </label>
             <input
               id="bg-color"
@@ -83,7 +86,7 @@ export default function CodeGenerator() {
           </div>
           <div className="flex flex-col gap-1">
             <label className="font-semibold" htmlFor="fg-color">
-              Foreground Color
+              {localeStrings.labels.foreground}
             </label>
             <input
               id="fg-color"
@@ -114,7 +117,7 @@ export default function CodeGenerator() {
           onClick={handleGenerate}
           className="w-full rounded-md bg-black py-2 font-semibold text-white"
         >
-          Generate QR Code
+          {localeStrings.buttons.generate}
         </button>
 
         {error && <p className="text-sm text-red-500">{error}</p>}
@@ -156,7 +159,7 @@ export default function CodeGenerator() {
                 className="flex gap-1 rounded-md bg-black px-4 py-2 font-bold text-white"
               >
                 <Download className="mr-2 h-4 w-4" />
-                <span>Download</span>
+                <span>{localeStrings.buttons.download}</span>
               </button>
             </div>
           </div>

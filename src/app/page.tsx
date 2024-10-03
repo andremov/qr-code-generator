@@ -1,4 +1,4 @@
-import CodeGenerator from "./_components/qr-code-generator";
+import CodeGenerator from "~/_components/qr-code-generator";
 
 export default function HomePage() {
   return (
