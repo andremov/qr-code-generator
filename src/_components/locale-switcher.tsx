@@ -16,8 +16,6 @@ export default function LocaleSwitcher({
         EN
       </Link>
 
-      <div className="h-full w-1 bg-gray-200" />
-
       <Link
         href={"/es"}
         className={
