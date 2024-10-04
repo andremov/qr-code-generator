@@ -5,7 +5,7 @@ import { type Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "QR Code Generator",
-  description: "Written by Andrés Movilla",
+  description: "👤✏️ Andrés Movilla",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
