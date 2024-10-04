@@ -14,7 +14,7 @@ export default function CodeGenerator({ lang = "en" }: { lang?: "en" | "es" }) {
   const [error, setError] = useState("");
   const [downloadFormat, setDownloadFormat] = useState("png");
   const qrRef = useRef(null);
-  const localeStrings: LocaleStrings = locale[lang];
+  const localeStrings = locale[lang] as LocaleStrings;
 
   const handleGenerate = () => {
     if (!qrCodeData.trim()) {
